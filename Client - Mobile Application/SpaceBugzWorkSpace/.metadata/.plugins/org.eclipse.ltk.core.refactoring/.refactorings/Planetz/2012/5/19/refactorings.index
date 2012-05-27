@@ -1,0 +1,18 @@
+1336560227372	Delete element
+1336560240372	Delete element
+1336565522943	Rename field 'mAccel'
+1336565539508	Rename field 'mAccelLast'
+1336565555152	Rename field 'mAccelCurrent'
+1336565570595	Rename field 'mSensorManager'
+1336565580694	Rename field 'mAccelerometer'
+1336569716057	Rename type 'TCPWrite'
+1336569823854	Rename type 'TCPListen'
+1336570521222	Rename method 'RemoveEventSubscriber'
+1336570575686	Rename method 'JoinGame'
+1336590605462	Rename type 'VirtuaPadTcpEventSubscriber'
+1336736526185	Rename method 'SetGamePlayLayout'
+1336736537572	Rename method 'SetGameLayout'
+1336738025168	Rename field 'mBackground'
+1336738038655	Rename field 'mBgRect'
+1336738062303	Rename field 'mBgPaint'
+1336738133411	Rename field 'mStrokePaint'

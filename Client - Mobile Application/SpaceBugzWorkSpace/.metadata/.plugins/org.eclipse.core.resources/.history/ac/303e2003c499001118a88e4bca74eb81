@@ -1,0 +1,336 @@
+package virtua.pad;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Canvas;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.provider.Settings;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+public class StartScreen extends RelativeLayout
+{
+    private StartButton buttonStartGame;
+    private TutorialButton buttonTutorial;
+    private ReconnectButton reconnectButton;
+    private VirtuaPadClient vpClient;
+    private InfoText infoText;
+    private AvatarImage avatarImage;
+    private ImageView logo;
+    private ConnectivityButton connectivityButton;
+    private LinearLayout connectionButtons;
+    private WifiManager wifiManager;
+    private VirtuaPadMain mainApp;
+    
+	public StartScreen(Context context, VirtuaPadClient vpClient, VirtuaPadMain mainApp) 
+	{
+		super(context);
+		
+		this.mainApp = mainApp;
+		
+		buttonStartGame = new StartButton(context, vpClient, mainApp);
+		buttonTutorial = new TutorialButton(context, mainApp);
+	
+		RelativeLayout.LayoutParams labelLayoutParams = new RelativeLayout.LayoutParams(
+	            LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+	    //labelLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+		this.setLayoutParams(labelLayoutParams);
+		
+		wifiManager	= (WifiManager)mainApp.getSystemService(mainApp.WIFI_SERVICE);
+		
+		this.setPadding(10, 10, 10, 10);
+	    
+		infoText = new InfoText(context);
+		infoText.setText("Trying to connect to game...");
+		infoText.setId(9000);
+		
+		this.vpClient = vpClient;
+		
+		logo = new ImageView(context);
+		logo.setImageResource(R.drawable.rotated_logo);
+		
+//		logo.setLayoutParams(new LayoutParams(800, 400));
+		
+		RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		//params1.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
+		params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+	
+		logo.setId(1337);
+		
+		//logo.setLayoutParams(logoLayoutParams);
+		this.addView(logo, params1);
+
+		RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		params2.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+		params2.addRule(RelativeLayout.ABOVE, logo.getId());
+		
+	    this.addView(infoText, params2);
+	    
+	    connectivityButton = new ConnectivityButton(context, mainApp);
+		reconnectButton = new ReconnectButton(this.getContext(), vpClient, infoText, connectivityButton);
+		
+		connectionButtons = new LinearLayout(context);
+		
+		connectionButtons.addView(reconnectButton);
+		connectionButtons.addView(connectivityButton);
+		
+		//this.setBackgroundColor(Color.CYAN);
+	    /*
+	    ViewGroup.MarginLayoutParams marginParams = new MarginLayoutParams(labelLayoutParams);
+	    marginParams.setMargins(30, 30, 30, 30);
+	    this.setLayoutParams(marginParams);
+		*/
+		// TODO Auto-generated constructor stub
+		this.forceLayout();
+	}
+	
+	public void ShowCouldNotConnect()
+	{
+		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+		if(!wifiManager.isWifiEnabled())
+		{
+			infoText.setText("You need to enable wifi and join 'Space Bugz!' in order to play");
+		}
+		else if(!(wifiInfo.getSSID() != "Space Bugz!" || wifiInfo.getSSID() != "Owar9001"))
+		{
+			Log.v("wifi", wifiInfo.getSSID());
+			infoText.setText("could not connect to game, you need to join the wifi 'Space Bugz!' in order to play");
+		}
+		else
+		{
+			infoText.setText("The game is stressed and needs a break, try again in a few seconds");
+		}
+				
+		RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		params1.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+		params1.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+		
+		reconnectButton.setEnabled(true);
+		connectivityButton.setEnabled(true);
+		
+		try
+		{
+			this.addView(connectionButtons, params1);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		this.forceLayout();
+	}
+	
+    public void ShowStartButtons()
+    {
+    	reconnectButton.setVisibility(INVISIBLE);
+    	connectivityButton.setVisibility(INVISIBLE);
+    		
+    	infoText.setText("You are connected as player " + vpClient.getID() + " and looks like:");
+    	
+    	avatarImage = new AvatarImage(this.getContext(), vpClient.getID());
+		
+    	infoText.setId(200);
+    	buttonTutorial.setId(300);
+    	
+    	LinearLayout buttonLayout = new LinearLayout(this.getContext());
+    	
+    	if(mainApp.getHasReadTutorial())
+    		buttonLayout.addView(buttonTutorial);
+    	
+    	buttonLayout.addView(avatarImage);
+    	buttonLayout.addView(buttonStartGame);
+    	
+		RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		params1.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+		params1.addRule(RelativeLayout.ABOVE, infoText.getId());
+		
+		this.addView(buttonLayout, params1);
+		
+		this.forceLayout();
+		
+    }
+
+    private class ConnectivityButton extends Button implements OnClickListener
+    {
+    	private Activity mainApp;
+    	
+    	public ConnectivityButton(Context context, Activity mainApp) 
+		{
+			super(context);
+									
+			this.setText("Wifi settings");
+			this.mainApp = mainApp;
+			
+			this.setOnClickListener(this);
+		}
+    		
+    	
+    	@Override 
+    	public void onDraw(Canvas canvas) 
+    	{ 
+    		canvas.save(); 
+    		//float px =  getWidth()/2f;
+    		
+    		canvas.rotate(-180, getWidth()/2f, getHeight()/2f);
+    		super.onDraw(canvas); 
+    		
+    		canvas.restore(); 
+    	}
+    	
+		public void onClick(View v) 
+		{
+			mainApp.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+			//this.setEnabled(false);
+		}
+    }
+    
+    private class ReconnectButton extends Button implements OnClickListener
+    {
+    	private VirtuaPadClient vpClient;
+    	private TextView tw;
+    	private ConnectivityButton connectButton;
+    	
+    	public ReconnectButton(Context context, VirtuaPadClient vpClient, TextView tw, ConnectivityButton connectButton) 
+		{
+			super(context);
+									
+			this.setText("Try again");
+			this.vpClient = vpClient;
+			this.tw = tw;
+
+			this.connectButton = connectButton;
+			
+			this.setOnClickListener(this);
+		}
+    		
+    	
+    	@Override 
+    	public void onDraw(Canvas canvas) 
+    	{ 
+    		canvas.save(); 
+    		//float px =  getWidth()/2f;
+    		
+    		canvas.rotate(-180, getWidth()/2f, getHeight()/2f);
+    		super.onDraw(canvas); 
+    		
+    		canvas.restore(); 
+    	}
+    	
+		public void onClick(View v) 
+		{
+			vpClient.Connect();
+			tw.setText("Trying to connect...");
+			this.setEnabled(false);
+			connectButton.setEnabled(false);
+		}
+    }
+    
+    private class TutorialButton extends Button implements OnClickListener
+    {
+    	private VirtuaPadMain mainApp;
+    	public TutorialButton(Context context, VirtuaPadMain mainApp) 
+		{
+			super(context);
+									
+			this.setText("Tutorial");
+			this.mainApp = mainApp;
+			
+			this.setOnClickListener(this);
+		}
+    	
+    	
+    	@Override 
+    	public void onDraw(Canvas canvas) 
+    	{ 
+    		canvas.save(); 
+    		//float px =  getWidth()/2f;
+    		
+    		canvas.rotate(-180, getWidth()/2f, getHeight()/2f);
+    		super.onDraw(canvas); 
+    		
+    		canvas.restore(); 
+    	}
+    	
+		public void onClick(View v) 
+		{
+			mainApp.SetTutorialLayout();
+		}
+    }
+    
+    private class InfoText extends TextView
+    {
+
+		public InfoText(Context context) {
+			super(context);
+			// TODO Auto-generated constructor stub
+		}
+    	
+    	@Override 
+    	public void onDraw(Canvas canvas) 
+    	{ 
+    		canvas.save(); 
+    		//float px =  getWidth()/2f;
+    		
+    		canvas.rotate(-180, getWidth()/2f, getHeight()/2f);
+    		super.onDraw(canvas); 
+    		
+    		canvas.restore(); 
+    	}
+    }
+    
+    private class StartButton extends Button implements OnClickListener
+    {
+    	private VirtuaPadClient vpClient;
+    	private VirtuaPadMain mainApp;
+    	public StartButton(Context context, VirtuaPadClient vpClient, VirtuaPadMain mainApp) 
+		{
+			super(context);
+			
+			this.vpClient = vpClient;
+			this.mainApp = mainApp;
+			
+			this.setText("Start Game!");
+			
+			this.setOnClickListener(this);
+		}
+    	
+    	@Override 
+    	public void onDraw(Canvas canvas) 
+    	{ 
+    		canvas.save(); 
+    		//float px =  getWidth()/2f;
+    		
+    		canvas.rotate(-180, getWidth()/2f, getHeight()/2f);
+    		super.onDraw(canvas); 
+    		
+    		canvas.restore(); 
+    	}
+    	
+		public void onClick(View v) 
+		{
+			
+			if(mainApp.getHasReadTutorial())
+				mainApp.SetWaitLayout();
+			else
+			{
+				SharedPreferences settings = mainApp.getSharedPreferences(VirtuaPadMain.PREFS_NAME, 0);
+			    SharedPreferences.Editor editor = settings.edit();
+			    editor.putBoolean("hasReadTutorial", true);
+			    editor.commit();
+
+			    
+			    mainApp.SetTutorialLayout();
+			}
+			//vpClient.JoinGame();
+			
+		}
+    }
+}

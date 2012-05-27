@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{AEE36EA7-0779-FF14-1C01-998A59A70ACC}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_0;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\Avatar.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\AvatarBeaconManager.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\AvatarDeath\AvatarDeath.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\AvatarManager.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\AvatarMovement.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\AvatarPickup.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\AvatarShoot.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Avatar\DebugInput.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\GamePhysics\AffectedByGravity.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\GamePhysics\Gravity.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\GamePhysics\GravityWell.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\GamePhysics\PointInDirectionOfVelocity.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\ItemSpawner\ItemSpawner.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\LevelManager\HighscoreGui.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\LevelManager\LevelManager.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\SoundTrackPlayer\SoundTrackSelector.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\SoundTrackPlayer\SoundtrackPlayer.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\SpawnPoints\ShowAsGizmo.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\LevelElements\SpawnPoints\SpawnPointManager.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Misc\AudioShufler.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Misc\DestroyAfterDelay.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\PlanetSpawner\EnvirornmentDamageToAvatar.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\PlanetSpawner\PlanetSpawner.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Presentation\SceneNavigation.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\Bazooka\Bazooka.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\Bazooka\BazookaExplosion.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\Bazooka\CreateExplosionOnImpact.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\Bazooka\ExplosionOnImpact.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\Bazooka\OnTriggerExplosion.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\DamageAvatars.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\Shield\Shield.cs" />
+     <Compile Include="Assets\GamePrototypes\Planetz\Weapons and powerups\ShootByAvatar.cs" />
+     <Compile Include="Assets\LoggingSystem\LogInterface.cs" />
+     <Compile Include="Assets\LoggingSystem\LogManager.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadCollaborateOrDieImplementation\CollaborateOrDieClientData.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadCollaborateOrDieImplementation\CollaborateOrDieClientDataFactory.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\ClientBaseClass.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\ClientBaseData.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\ColorAssigner.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\ColorAssignmentTest.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\PlayerEntity.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\Plugins\MiscUtil\Conversion\BigEndianBitConverter.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\Plugins\MiscUtil\Conversion\DoubleConverter.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\Plugins\MiscUtil\Conversion\EndianBitConverter.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\Plugins\MiscUtil\Conversion\Endianness.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\Plugins\MiscUtil\Conversion\LittleEndianBitConverter.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\Plugins\VirtuaPadServer.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\ServerBehaviour.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadServer\TcpEventSubscriber.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadSpaceBugzImplementation\SpaceBugzClient.cs" />
+     <Compile Include="Assets\VirtuaPad\VirtuaPadSpaceBugzImplementation\Tags.cs" />
+     <None Include="Assets\GamePrototypes\Planetz\Misc\Unlit-AlphaTest.shader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

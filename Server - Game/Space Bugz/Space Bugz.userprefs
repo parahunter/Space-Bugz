@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\VirtuaPad\VirtuaPadServer\Plugins\VirtuaPadServer.cs">
+    <Files>
+      <File FileName="Assets\VirtuaPad\VirtuaPadServer\Plugins\VirtuaPadServer.cs" Line="94" Column="4" />
+      <File FileName="Assets\GamePrototypes\Planetz\Avatar\AvatarShoot.cs" Line="18" Column="2" />
+      <File FileName="Assets\GamePrototypes\Planetz\LevelElements\LevelManager\HighscoreGui.cs" Line="99" Column="2" />
+      <File FileName="Assets\GamePrototypes\Planetz\Avatar\Avatar.cs" Line="173" Column="2" />
+      <File FileName="Assets\VirtuaPad\VirtuaPadSpaceBugzImplementation\Tags.cs" Line="6" Column="37" />
+      <File FileName="Assets\GamePrototypes\Planetz\Avatar\AvatarPickup.cs" Line="37" Column="2" />
+      <File FileName="Assets\VirtuaPad\VirtuaPadSpaceBugzImplementation\PlanetClient.cs" Line="66" Column="3" />
+      <File FileName="Assets\GamePrototypes\Planetz\Avatar\AvatarManager.cs" Line="191" Column="52" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
