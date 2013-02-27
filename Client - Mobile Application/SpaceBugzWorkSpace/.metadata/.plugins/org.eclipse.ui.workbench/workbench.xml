@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="15" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="1403" y="-9">
+<window height="768" width="1024" x="155" y="202">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="126" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="194" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="adt.actionSet.lint" itemType="typeToolBarContribution" x="57" y="22"/>
@@ -29,7 +29,24 @@
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1337104998407" focus="true" label="Workspace - Java">
 <editors>
-<editorArea activeWorkbook="DefaultEditorWorkbook"/>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VirtuaPadClient.java" partName="VirtuaPadClient.java" path="D:/Dropbox/Studium/bachelor project/Software/SpaceBugzWorkSpace/Planetz/src/virtua/pad/VirtuaPadClient.java" title="VirtuaPadClient.java" tooltip="Planetz/src/virtua/pad/VirtuaPadClient.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Planetz/src/virtua/pad/VirtuaPadClient.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="475" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UdpSender.java" partName="UdpSender.java" path="C:/Users/alexander/Dropbox/Studium/bachelor project/Software/SpaceBugzWorkSpace/Planetz/src/virtua/pad/UdpSender.java" title="UdpSender.java" tooltip="Planetz/src/virtua/pad/UdpSender.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Planetz/src/virtua/pad/UdpSender.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1335" selectionTopPixel="648"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
@@ -41,6 +58,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1335544656492">
@@ -77,7 +97,7 @@
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -140,6 +160,7 @@
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
 <layout>
@@ -165,18 +186,19 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.249499" ratioLeft="249" ratioRight="749" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.7496063" ratioLeft="476" ratioRight="159" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -195,7 +217,43 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Planetz/src/virtua/pad/VirtuaPadClient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Planetz/src/virtua/pad/UdpSender.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Planetz/src/virtua/pad/UdpSender.java"/>
+</editors>
+<item historyLabel="VirtuaPadClient.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UdpSender.java" index="1">
+<position info="not_deleted" x="3135" y="0"/>
+</item>
+<item historyLabel="UdpSender.java" index="1">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item historyLabel="VirtuaPadClient.java" index="0">
+<position info="not_deleted" x="7827" y="0"/>
+</item>
+<item historyLabel="VirtuaPadClient.java" index="0">
+<position info="not_deleted" x="3510" y="0"/>
+</item>
+<item historyLabel="UdpSender.java" index="1">
+<position info="not_deleted" x="1311" y="0"/>
+</item>
+<item historyLabel="VirtuaPadClient.java" index="0">
+<position info="not_deleted" x="3510" y="0"/>
+</item>
+<item historyLabel="UdpSender.java" index="2">
+<position info="not_deleted" x="1335" y="0"/>
+</item>
+<item historyLabel="VirtuaPadClient.java" index="0">
+<position info="not_deleted" x="1920" y="0"/>
+</item>
+<item active="true" historyLabel="VirtuaPadClient.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -212,6 +270,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UdpSender.java" tooltip="Planetz/src/virtua/pad/UdpSender.java">
+<persistable path="/Planetz/src/virtua/pad/UdpSender.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VirtuaPadClient.java" tooltip="Planetz/src/virtua/pad/VirtuaPadClient.java">
+<persistable path="/Planetz/src/virtua/pad/VirtuaPadClient.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AvatarImage.java" tooltip="Planetz/src/virtua/pad/AvatarImage.java">
 <persistable path="/Planetz/src/virtua/pad/AvatarImage.java"/>
 </file>
@@ -224,9 +288,6 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VirtuaPadTcpEventSubscriber.java" tooltip="Planetz/src/virtua/pad/VirtuaPadTcpEventSubscriber.java">
 <persistable path="/Planetz/src/virtua/pad/VirtuaPadTcpEventSubscriber.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UdpSender.java" tooltip="Planetz/src/virtua/pad/UdpSender.java">
-<persistable path="/Planetz/src/virtua/pad/UdpSender.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tags.java" tooltip="Planetz/src/virtua/pad/Tags.java">
 <persistable path="/Planetz/src/virtua/pad/Tags.java"/>
 </file>
@@ -235,9 +296,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestData.java" tooltip="Planetz/src/virtua/pad/TestData.java">
 <persistable path="/Planetz/src/virtua/pad/TestData.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VirtuaPadClient.java" tooltip="Planetz/src/virtua/pad/VirtuaPadClient.java">
-<persistable path="/Planetz/src/virtua/pad/VirtuaPadClient.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="Planetz/res/values/strings.xml">
 <persistable path="/Planetz/res/values/strings.xml"/>
