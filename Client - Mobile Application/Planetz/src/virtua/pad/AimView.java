@@ -1,0 +1,110 @@
+package virtua.pad;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.util.Log;
+import android.view.*;
+
+public class AimView extends View
+{
+	private Vector2D touchEndPos;
+	private Vector2D touchStartPos;
+	private VirtuaPadClient vpClient;
+	private boolean drawAim = false;
+	private Bitmap background;
+	private RectF bgRect;
+	private Paint bgPaint;
+	
+	private Paint strokePaint;
+	
+	public AimView(Context context, VirtuaPadClient client) 
+	{
+		super(context);
+		// TODO Auto-generated constructor stub
+		
+		touchEndPos = new Vector2D();
+		touchStartPos = new Vector2D();
+		vpClient = client;
+		
+		 Resources res = getResources();
+		 background = BitmapFactory.decodeResource(res, R.drawable.rotated_aim_view_background);
+		 		 
+		 //mBgSourceRect = new Rect(0, 0, right, bottom)
+		 
+		 bgPaint = new Paint();
+     	 int paintcolor = Color.argb(255, 255, 255, 255);
+     	 
+     	 
+     	 bgPaint.setColor(paintcolor);
+		 
+     	 strokePaint = new Paint();
+     	 paintcolor = Color.BLACK;
+     	 strokePaint.setColor(paintcolor);
+     	 strokePaint.setStrokeWidth(5);
+     	 
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) 
+	{
+		int e = event.getAction();
+				
+		//in reverse order because the whole app is in reverse!
+		Vector2D aimVector = touchEndPos.substract(touchStartPos);
+		
+		vpClient.SetAimVector(aimVector);
+		
+		setTouchPos( new Vector2D( event.getX(), event.getY() ) );
+
+		if(e == MotionEvent.ACTION_DOWN)
+		{
+			vpClient.setIsShooting(true);
+			
+			touchStartPos.x = event.getX();
+			touchStartPos.y = event.getY();
+			drawAim = true;
+		} 
+		else if (e == MotionEvent.ACTION_UP)
+		{
+			vpClient.setIsShooting(false);
+			drawAim = false;
+		}
+		
+		return true;
+	}
+		
+	@Override
+	public void onSizeChanged(int w, int h, int oldw, int oldh)
+	{
+		super.onSizeChanged(w, h, oldw, oldh);
+		
+		bgRect = new RectF(0, 0, w, h);
+		
+	}
+	
+	public void setTouchPos(Vector2D newPos)
+	{
+		touchEndPos = newPos;
+		this.invalidate();
+	}
+	
+	@Override
+    public void onDraw(Canvas canvas) 
+	{
+        super.onDraw(canvas);
+        
+        canvas.drawBitmap(background, null, bgRect, bgPaint);
+       
+        if(drawAim)
+        {
+        	canvas.drawLine(touchStartPos.x, touchStartPos.y, touchEndPos.x, touchEndPos.y, strokePaint);
+        }
+	}
+}

@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+D:\Dropbox\Studium\bachelor project\Software\SpaceBugzWorkSpace\.metadata\.plugins\org.eclipse.jdt.core
+4051496096.index
+3352491446.index
+4044738210.index
